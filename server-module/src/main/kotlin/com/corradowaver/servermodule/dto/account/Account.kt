@@ -1,4 +1,4 @@
-package com.corradowaver.servermodule.dto
+package com.corradowaver.servermodule.dto.account
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import javax.persistence.Entity

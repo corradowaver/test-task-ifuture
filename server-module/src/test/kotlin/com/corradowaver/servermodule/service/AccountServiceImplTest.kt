@@ -1,7 +1,8 @@
 package com.corradowaver.servermodule.service
 
-import com.corradowaver.servermodule.dto.Account
+import com.corradowaver.servermodule.dto.account.Account
 import com.corradowaver.servermodule.repository.AccountRepository
+import com.corradowaver.servermodule.service.account.AccountServiceImpl
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows

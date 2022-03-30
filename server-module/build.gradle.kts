@@ -25,6 +25,7 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-cache:2.6.5")
   implementation("org.mockito:mockito-core:4.4.0")
   implementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+  implementation("org.springframework.boot:spring-boot-starter-actuator:2.6.5")
   runtimeOnly("org.postgresql:postgresql")
   testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

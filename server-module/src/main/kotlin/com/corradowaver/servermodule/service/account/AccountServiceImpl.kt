@@ -1,4 +1,4 @@
-package com.corradowaver.servermodule.service
+package com.corradowaver.servermodule.service.account
 
 import com.corradowaver.servermodule.config.ACCOUNTS_CACHE_NAME
 import com.corradowaver.servermodule.repository.AccountRepository
@@ -27,7 +27,7 @@ class AccountServiceImpl(
         throw IllegalArgumentException("Account with such id was not found")
       }
       .also {
-        logger.error("Account $id was retrieved from database")
+        logger.info("Account $id was retrieved from database")
       }
       .amount ?: 0
 
@@ -51,6 +51,6 @@ class AccountServiceImpl(
         }
       }
     accountRepository.save(account)
-    logger.error("Account $id amount was updated ${account.amount}")
+    logger.info("Account $id amount was updated ${account.amount}")
   }
 }

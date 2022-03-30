@@ -1,4 +1,4 @@
-package com.corradowaver.servermodule.service
+package com.corradowaver.servermodule.service.account
 
 interface AccountService {
   /**
