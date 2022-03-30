@@ -43,7 +43,7 @@ class AccountMetricService(
     return AccountMetrics(getCounter, addCounter)
   }
 
-  private final fun createCounter(counterName: String) =
+  private fun createCounter(counterName: String) =
     Counter
       .builder(counterName)
       .register(registry)
