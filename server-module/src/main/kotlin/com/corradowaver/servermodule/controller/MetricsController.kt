@@ -17,4 +17,8 @@ class MetricsController(
   fun getAccountServiceMetrics() =
     metricService.getAccountServiceMetrics()
 
+  @GetMapping("/metrics/rate")
+  fun getAccountServiceRequestsRate() =
+    metricService.getRequestsRate()
+
 }
