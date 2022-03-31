@@ -5,9 +5,15 @@ import com.corradowaver.servermodule.repository.AccountRepository
 import com.corradowaver.servermodule.utils.logger
 import org.springframework.cache.annotation.CacheEvict
 import org.springframework.cache.annotation.Cacheable
+import org.springframework.retry.annotation.EnableRetry
+import org.springframework.retry.annotation.Retryable
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
+import java.sql.SQLException
 
 @Service
+@Transactional
+@EnableRetry
 class AccountServiceImpl(
   val accountRepository: AccountRepository
 ) : AccountService {
@@ -36,6 +42,7 @@ class AccountServiceImpl(
    * Evicts updated account from cache if exists
    */
   @CacheEvict(ACCOUNTS_CACHE_NAME, key = "#id")
+  @Retryable(SQLException::class)
   override fun addAmount(id: Int, value: Long) {
     val account = accountRepository
       .findById(id)
@@ -51,6 +58,6 @@ class AccountServiceImpl(
         }
       }
     accountRepository.save(account)
-    logger.info("Account $id amount was updated ${account.amount}")
+    logger.info("Account $id amount was updated")
   }
 }
